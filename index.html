@@ -3,144 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Agence - Système Fidélité</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Fiddle | Agency Hub</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
+            --bg: #0b0f1a;
+            --card-bg: #161b2a;
+            --card-border: #232936;
+            --text-main: #ffffff;
             --text-muted: #94a3b8;
-            --primary: #3b82f6;
-            --primary-hover: #2563eb;
+            --primary: #6366f1;
+            --primary-glow: rgba(99, 102, 241, 0.2);
+            --success: #10b981;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg);
             color: var(--text-main);
+            line-height: 1.6;
             padding: 40px 20px;
         }
 
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* HEADER */
         .header {
-            max-width: 1000px;
-            margin: 0 auto 40px auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 1px solid #334155;
-            padding-bottom: 20px;
+            margin-bottom: 50px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid var(--card-border);
         }
 
-        .header h1 { font-size: 24px; font-weight: 600; }
-        .header .status { font-size: 14px; color: #10b981; display: flex; align-items: center; gap: 8px;}
-        .status-dot { width: 10px; height: 10px; background-color: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981;}
+        .header-title h1 {
+            font-size: 28px;
+            letter-spacing: -0.5px;
+            background: linear-gradient(90deg, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-        .grid-container {
-            max-width: 1000px;
-            margin: 0 auto;
+        .status-pill {
+            background: rgba(16, 185, 129, 0.1);
+            color: var(--success);
+            padding: 6px 12px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--success);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* GRID SYSTEM */
+        .section-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin: 40px 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-title::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: var(--card-border);
+        }
+
+        .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
         }
 
+        /* CARD STYLE */
         .card {
-            background-color: var(--card-bg);
-            border-radius: 16px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
             padding: 24px;
-            border: 1px solid #334155;
-            transition: transform 0.2s, border-color 0.2s;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
-            transform: translateY(-5px);
             border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5), 0 0 15px var(--primary-glow);
         }
 
-        .card-icon { font-size: 32px; margin-bottom: 16px; }
-        
-        .card h2 { font-size: 18px; margin-bottom: 8px; font-weight: 600; }
-        
-        .card p { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; line-height: 1.5; }
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+            border: 1px solid var(--card-border);
+        }
+
+        .card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            flex-grow: 1;
+        }
 
         .btn {
-            display: inline-block;
-            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--primary);
             color: white;
             text-decoration: none;
-            padding: 10px 16px;
-            border-radius: 8px;
+            padding: 12px;
+            border-radius: 12px;
             font-size: 14px;
-            font-weight: 500;
-            transition: background 0.2s;
-            width: 100%;
-            text-align: center;
+            font-weight: 600;
+            transition: all 0.2s;
         }
 
-        .btn:hover { background-color: var(--primary-hover); }
+        .btn:hover {
+            filter: brightness(1.1);
+            transform: scale(1.02);
+        }
 
-        .section-title {
-            max-width: 1000px;
-            margin: 40px auto 20px auto;
-            font-size: 18px;
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid var(--card-border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--card-border);
+        }
+
+        .badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.05);
             color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>🚀 Hub Agence - Fiddle</h1>
-        <div class="status">
-            <div class="status-dot"></div>
-            Systèmes Opérationnels
-        </div>
-    </div>
-
-    <div class="section-title">Outils Principaux</div>
-    <div class="grid-container">
+    <div class="container">
         
-        <div class="card">
-            <div class="card-icon">✉️</div>
-            <h2>Brevo (CRM & Emails)</h2>
-            <p>Gestion de la base de données clients, automatisations des relances et envoi des emails.</p>
-            <a href="https://app.brevo.com/" target="_blank" class="btn">Ouvrir Brevo</a>
+        <header class="header">
+            <div class="header-title">
+                <h1>🚀 Hub Agence - Fiddle</h1>
+            </div>
+            <div class="status-pill">
+                <div class="status-dot"></div>
+                Cloud Systems Active
+            </div>
+        </header>
+
+        <div class="section-title">Gestion & CRM</div>
+        <div class="grid">
+            
+            <div class="card">
+                <div class="card-icon">✉️</div>
+                <h3>Brevo CRM</h3>
+                <p>Base de données, automatisations et campagnes emails transactionnelles.</p>
+                <a href="https://app.brevo.com/" target="_blank" class="btn">Accès Direct</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Google Sheets</h3>
+                <p>Suivi des performances, logs de validation et reporting agence.</p>
+                <a href="https://docs.google.com/spreadsheets/" target="_blank" class="btn btn-secondary">Ouvrir les rapports</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">📄</div>
+                <h3>Documentation / CDC</h3>
+                <p>Cahier des charges et spécifications techniques du projet Fiddle.</p>
+                <a href="https://docs.google.com/document/d/1H7cQnIURe_lSk7maTOWovx_Fjjl7zGvu/edit?dls=true" target="_blank" class="btn btn-secondary">Consulter le Doc</a>
+            </div>
+
         </div>
 
-        <div class="card">
-            <div class="card-icon">🐙</div>
-            <h2>GitHub (Hébergement)</h2>
-            <p>Gestion du code source et hébergement des pages web des restaurants via GitHub Pages.</p>
-            <a href="https://github.com/" target="_blank" class="btn">Gérer les sites</a>
+        <div class="section-title">Infrastructure & Code</div>
+        <div class="grid">
+
+            <div class="card">
+                <div class="card-icon">🐙</div>
+                <h3>GitHub Repositories</h3>
+                <p>Gestionnaire de code source pour les différents modules Fiddle.</p>
+                <a href="https://github.com/vickthaur" target="_blank" class="btn">Mon Profil GitHub</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">⚙️</div>
+                <h3>Hébergement Pages</h3>
+                <p>Déploiements en direct sur GitHub Pages pour chaque client.</p>
+                <a href="https://github.com/" target="_blank" class="btn btn-secondary">Gérer les sites</a>
+            </div>
+
         </div>
 
-        <div class="card">
-            <div class="card-icon">📱</div>
-            <h2>QR Code Generator</h2>
-            <p>Création des QR codes à imprimer pour les tables et les caisses des restaurants.</p>
-            <a href="https://www.qrcode-monkey.com/fr/" target="_blank" class="btn">Créer un QR Code</a>
-        </div>
-    </div>
+        <div class="section-title">Outils de Terrain</div>
+        <div class="grid">
 
-    <div class="section-title">Clients & Documentation</div>
-    <div class="grid-container">
+            <div class="card">
+                <span class="badge">LIVE 🟢</span>
+                <div class="card-icon">📸</div>
+                <h3>Scanner Serveur</h3>
+                <p>Interface de scan pour les restaurateurs. Validation des points en direct.</p>
+                <a href="https://vickthaur.github.io/FIDDLE-scanner/" target="_blank" class="btn" style="background: var(--success);">Ouvrir le Scanner</a>
+            </div>
 
-        <div class="card">
-            <div class="card-icon">🍽️</div>
-            <h2>Client : Le Bistrot (Test V1)</h2>
-            <p>Statut : En ligne 🟢<br>Landing page officielle connectée et opérationnelle.</p>
-            <a href="https://vickthaur.github.io/FIDDLE/" target="_blank" class="btn" style="background-color: #10b981;">Voir la V1 en ligne</a>
-        </div>
+            <div class="card">
+                <div class="card-icon">🍽️</div>
+                <h3>Démo : Le Bistrot</h3>
+                <p>Landing page client (V1) opérationnelle avec système de fidélité.</p>
+                <a href="https://vickthaur.github.io/FIDDLE/" target="_blank" class="btn btn-secondary">Voir la démo</a>
+            </div>
 
-        <div class="card">
-            <div class="card-icon">📄</div>
-            <h2>Cahier des Charges (CDC)</h2>
-            <p>Document fondateur du projet. Garder un œil sur les règles de la V1 et l'avancement.</p>
-            <a href="https://docs.google.com/document/d/1H7cQnIURe_lSk7maTOWovx_Fjjl7zGvu/edit?dls=true" target="_blank" class="btn" style="background-color: #475569;">Ouvrir le Google Doc</a>
+            <div class="card">
+                <div class="card-icon">📱</div>
+                <h3>Générateur QR</h3>
+                <p>Outil tiers pour générer les QR Codes à imprimer (Monkey QR).</p>
+                <a href="https://www.qrcode-monkey.com/fr/" target="_blank" class="btn btn-secondary">Générer un code</a>
+            </div>
+
         </div>
 
     </div>
