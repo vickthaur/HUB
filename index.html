@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fiddle Bro's | Agency Command Center</title>
+    <title>FYDELIO | Agency Command Center</title>
     
     <link rel="icon" type="image/jpeg" href="flavicon.jpg">
     <link rel="apple-touch-icon" href="flavicon.jpg">
-    <link rel="manifest" href="manifest.json">
     
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Fiddle Hub">
+    <meta name="apple-mobile-web-app-title" content="FYDELIO Hub">
     <meta name="theme-color" content="#050810">
 
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -23,8 +22,8 @@
             --card-border: rgba(255, 255, 255, 0.08);
             --text-main: #ffffff;
             --text-muted: #94a3b8;
-            --primary: #6366f1;
-            --primary-glow: rgba(99, 102, 241, 0.4);
+            --primary: #0F766E; /* Vert FYDELIO */
+            --primary-glow: rgba(15, 118, 110, 0.4);
             --success: #10b981;
             --accent: #f59e0b;
         }
@@ -35,7 +34,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--bg);
             background-image: 
-                radial-gradient(circle at 0% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 0% 0%, rgba(15, 118, 110, 0.15) 0%, transparent 40%),
                 radial-gradient(circle at 100% 100%, rgba(16, 185, 129, 0.05) 0%, transparent 40%);
             color: var(--text-main);
             line-height: 1.6;
@@ -69,7 +68,7 @@
 
         .header-title h1 {
             font-size: 28px; font-weight: 800; letter-spacing: -1px;
-            background: linear-gradient(135deg, #fff 0%, #6366f1 100%);
+            background: linear-gradient(135deg, #fff 0%, var(--primary) 100%);
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
@@ -119,7 +118,7 @@
 
         .card:hover {
             transform: translateY(-10px);
-            border-color: rgba(99, 102, 241, 0.3);
+            border-color: rgba(15, 118, 110, 0.3);
             background: rgba(22, 27, 42, 0.8);
             box-shadow: 0 30px 60px -12px rgba(0,0,0,0.5), 0 0 20px var(--primary-glow);
         }
@@ -141,10 +140,10 @@
             background: var(--primary); color: white; text-decoration: none;
             padding: 16px; border-radius: 16px; font-size: 14px; font-weight: 700;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.2);
+            box-shadow: 0 4px 15px rgba(15, 118, 110, 0.2);
         }
 
-        .btn:hover { filter: brightness(1.1); transform: scale(1.02); box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4); }
+        .btn:hover { filter: brightness(1.1); transform: scale(1.02); box-shadow: 0 8px 25px rgba(15, 118, 110, 0.4); }
 
         .btn-outline { background: transparent; border: 1px solid var(--card-border); }
         .btn-outline:hover { background: rgba(255,255,255,0.05); border-color: var(--text-muted); }
@@ -157,7 +156,7 @@
             border-radius: 8px; text-transform: uppercase; letter-spacing: 1px;
         }
         .badge-live { background: rgba(16, 185, 129, 0.1); color: var(--success); border: 1px solid rgba(16, 185, 129, 0.2); }
-        .badge-db { background: rgba(99, 102, 241, 0.1); color: var(--primary); border: 1px solid rgba(99, 102, 241, 0.2); }
+        .badge-db { background: rgba(15, 118, 110, 0.1); color: var(--primary); border: 1px solid rgba(15, 118, 110, 0.2); }
 
         @media (max-width: 768px) {
             .header { flex-direction: column; text-align: center; gap: 20px; }
@@ -171,10 +170,10 @@
         
         <header class="header">
             <div class="brand-section">
-                <img src="flavicon.jpg" alt="Logo" class="logo-img">
+                <img src="flavicon.jpg" alt="Logo FYDELIO" class="logo-img">
                 <div class="header-title">
-                    <h1>Agency Command Center</h1>
-                    <p style="color: var(--text-muted); font-size: 14px; font-weight: 500;">Fiddle Bro's Intelligence Hub</p>
+                    <h1>FYDELIO Command Center</h1>
+                    <p style="color: var(--text-muted); font-size: 14px; font-weight: 500;">FYDELIO Intelligence Hub</p>
                 </div>
             </div>
             <div class="status-pill">
@@ -185,18 +184,18 @@
 
         <div class="section-title">Data, CRM & Cloud</div>
         <div class="grid">
-            <div class="card" style="border-top: 3px solid #3ecf8e;">
+            <div class="card" style="border-top: 3px solid var(--primary);">
                 <span class="badge badge-db">Engine ⚡</span>
                 <div class="card-icon">⚡</div>
                 <h3>Supabase Database</h3>
-                <p>Cerveau de l'agence : gestion des tables 'clients' et 'points'. Visualisation des logs et monitoring de l'infrastructure SQL en temps réel.</p>
+                <p>Cerveau de l'agence : gestion des tables 'clients' et 'points'. Visualisation des logs et monitoring de l'infrastructure SQL FYDELIO.</p>
                 <a href="https://supabase.com/dashboard/project/qawfwbppnbnskxlkwstu/editor/17555?schema=public" target="_blank" class="btn">Piloter la Data</a>
             </div>
 
             <div class="card">
                 <div class="card-icon">✉️</div>
                 <h3>Brevo Dashboard</h3>
-                <p>Gestion des automates marketing, des listes de diffusion et du suivi des emails transactionnels pour la Villa et le Bistrot.</p>
+                <p>Gestion des automates marketing, des listes de diffusion et du suivi des emails transactionnels FYDELIO.</p>
                 <a href="https://app.brevo.com/" target="_blank" class="btn btn-outline">Accès Marketing</a>
             </div>
 
@@ -213,8 +212,8 @@
             <div class="card">
                 <div class="card-icon">🐙</div>
                 <h3>Dépôt GitHub</h3>
-                <p>Hébergement du code source (HTML/JS). Déploiement automatisé via GitHub Pages pour les interfaces client et serveur.</p>
-                <a href="https://github.com/vickthaur/FIDDLE-App" target="_blank" class="btn btn-outline">Code Source</a>
+                <p>Hébergement du code source FYDELIO. Déploiement automatisé via GitHub Pages pour les interfaces client et serveur.</p>
+                <a href="https://github.com/vickthaur/FYDELIO-App" target="_blank" class="btn btn-outline">Code Source</a>
             </div>
 
             <div class="card">
@@ -227,7 +226,7 @@
             <div class="card">
                 <div class="card-icon">✨</div>
                 <h3>Journal Gemini</h3>
-                <p>Historique des itérations IA, documentation des fonctions et base de connaissances technique du projet.</p>
+                <p>Historique des itérations IA, documentation des fonctions et base de connaissances technique de FYDELIO.</p>
                 <a href="https://gemini.google.com/share/4447b9345417" target="_blank" class="btn btn-outline">Consulter l'IA</a>
             </div>
         </div>
@@ -236,9 +235,9 @@
         <div class="grid">
             <div class="card">
                 <div class="card-icon">🌐</div>
-                <h3>Site Vitrine Agence</h3>
-                <p>Landing page publique Fiddle Bro's pour présenter l'offre à 99€/mois et convertir les restaurateurs locaux.</p>
-                <a href="https://vickthaur.github.io/FIDDLE-home/" target="_blank" class="btn btn-outline">Voir le Site</a>
+                <h3>Site Vitrine FYDELIO</h3>
+                <p>Landing page publique pour présenter l'offre de fidélisation et convertir les restaurateurs locaux.</p>
+                <a href="https://fydelio.fr/" target="_blank" class="btn btn-outline">Voir le Site</a>
             </div>
 
             <div class="card">
@@ -251,7 +250,7 @@
             <div class="card">
                 <div class="card-icon">📄</div>
                 <h3>Cahier des Charges</h3>
-                <p>Documentation stratégique : Roadmap V1, spécifications métiers et règles de gestion des établissements.</p>
+                <p>Documentation stratégique : Roadmap V1, spécifications métiers et règles de gestion FYDELIO.</p>
                 <a href="https://docs.google.com/document/d/1H7cQnIURe_lSk7maTOWovx_Fjjl7zGvu/edit?dls=true" target="_blank" class="btn btn-outline">Ouvrir le Doc</a>
             </div>
         </div>
@@ -262,15 +261,15 @@
                 <span class="badge badge-live">Live 🟢</span>
                 <div class="card-icon">📸</div>
                 <h3>Scanner Pro</h3>
-                <p>Interface haute performance pour le personnel en salle. Validation instantanée des points via scan QR Code.</p>
-                <a href="https://vickthaur.github.io/FIDDLE-App/scanner.html?resto=bistrot" target="_blank" class="btn btn-success">Lancer le Scanner</a>
+                <p>Interface haute performance pour le personnel en salle. Validation instantanée des points FYDELIO via scan QR Code.</p>
+                <a href="https://vickthaur.github.io/FYDELIO-App/scanner.html?resto=villa_saint_antoine" target="_blank" class="btn btn-success">Lancer le Scanner</a>
             </div>
 
             <div class="card">
                 <div class="card-icon">🍽️</div>
                 <h3>Landing Page Client</h3>
-                <p>Interface d'inscription et de consultation de la carte de fidélité pour les clients finaux (Exemple Bistrot).</p>
-                <a href="https://vickthaur.github.io/FIDDLE-App/index.html" target="_blank" class="btn btn-outline">Voir la Démo</a>
+                <p>Interface d'inscription et de consultation de la carte de fidélité pour les clients finaux (Exemple Villa).</p>
+                <a href="https://vickthaur.github.io/FYDELIO-App/?resto=villa_saint_antoine" target="_blank" class="btn btn-outline">Voir la Démo</a>
             </div>
         </div>
 
